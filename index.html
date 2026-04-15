@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SpýtajSa — AI asistent pre vašu firmu</title>
 <meta name="description" content="Firemný AI asistent, ktorý pozná vaše dokumenty, procesy a smernice. Zamestnanci sa pýtajú, okamžite dostávajú odpovede.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%236c5ce7'/><text x='50' y='68' font-size='55' font-weight='bold' text-anchor='middle' fill='white'>S</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -664,6 +665,115 @@
     text-align: center;
   }
 
+  /* === SOCIAL PROOF === */
+  .social-proof {
+    padding: 60px 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .proof-text {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    margin-bottom: 32px;
+  }
+
+  .proof-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .proof-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .proof-number {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-light), var(--green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .proof-label {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+
+  /* === FAQ === */
+  .faq {
+    padding: 100px 0;
+  }
+
+  .faq-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 750px;
+    margin: 48px auto 0;
+  }
+
+  .faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .faq-item:hover {
+    border-color: var(--accent);
+  }
+
+  .faq-question {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    user-select: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.4rem;
+    color: var(--accent-light);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .faq-item.open .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 200px;
+  }
+
+  .faq-answer-inner {
+    padding: 0 24px 20px;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
   .cta-box {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -926,6 +1036,31 @@
   </div>
 </section>
 
+<!-- SOCIAL PROOF -->
+<section class="social-proof">
+  <div class="container">
+    <p class="proof-text" data-sk="Pomáhame slovenským a českým firmám pracovať efektívnejšie" data-en="Helping Slovak and Czech companies work more efficiently">Pomáhame slovenským a českým firmám pracovať efektívnejšie</p>
+    <div class="proof-logos">
+      <div class="proof-item">
+        <div class="proof-number">3s</div>
+        <div class="proof-label" data-sk="priemerný čas odpovede" data-en="average response time">priemerný čas odpovede</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-number">80%</div>
+        <div class="proof-label" data-sk="menej otázok na kolegov" data-en="fewer questions to colleagues">menej otázok na kolegov</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-number">5h</div>
+        <div class="proof-label" data-sk="ušetrených týždenne / zamestnanec" data-en="saved weekly / employee">ušetrených týždenne / zamestnanec</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-number">2 dni</div>
+        <div class="proof-label" data-sk="nasadenie od prvého kontaktu" data-en="deployment from first contact">nasadenie od prvého kontaktu</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section class="pricing" id="pricing">
   <div class="container">
@@ -975,6 +1110,36 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-label" data-sk="Časté otázky" data-en="FAQ">Časté otázky</div>
+    <h2 class="section-title" data-sk="Máte otázky? Máme odpovede." data-en="Have questions? We have answers.">Máte otázky? Máme odpovede.</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)" data-sk="Je to bezpečné? Kde sú uložené naše dáta?" data-en="Is it secure? Where is our data stored?">Je to bezpečné? Kde sú uložené naše dáta?</div>
+        <div class="faq-answer"><div class="faq-answer-inner" data-sk="Áno. Vaše dokumenty sú šifrované a uložené na serveroch v EÚ. Sme plne GDPR kompatibilní. Vaše dáta nikdy nezdieľame s tretími stranami a máte plnú kontrolu nad tým, čo nahráte." data-en="Yes. Your documents are encrypted and stored on EU servers. We are fully GDPR compliant. We never share your data with third parties and you have full control over what you upload.">Áno. Vaše dokumenty sú šifrované a uložené na serveroch v EÚ. Sme plne GDPR kompatibilní. Vaše dáta nikdy nezdieľame s tretími stranami a máte plnú kontrolu nad tým, čo nahráte.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)" data-sk="Ako dlho trvá nasadenie?" data-en="How long does deployment take?">Ako dlho trvá nasadenie?</div>
+        <div class="faq-answer"><div class="faq-answer-inner" data-sk="Väčšinu firiem dokážeme nastaviť do 2 pracovných dní. Stačí nám vaše dokumenty a za pár hodín máte funkčný AI knowledge base." data-en="We can set up most companies within 2 business days. Just send us your documents and you'll have a working AI knowledge base in hours.">Väčšinu firiem dokážeme nastaviť do 2 pracovných dní. Stačí nám vaše dokumenty a za pár hodín máte funkčný AI knowledge base.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)" data-sk="Čo ak chcem skončiť? Stratím dáta?" data-en="What if I want to cancel? Will I lose data?">Čo ak chcem skončiť? Stratím dáta?</div>
+        <div class="faq-answer"><div class="faq-answer-inner" data-sk="Žiadne viazanosti. Môžete zrušiť kedykoľvek. Vaše originálne dokumenty sú stále vaše — my ich iba spracúvame. Po zrušení ich kompletne vymažeme." data-en="No commitments. You can cancel anytime. Your original documents are always yours — we only process them. After cancellation, we completely delete them.">Žiadne viazanosti. Môžete zrušiť kedykoľvek. Vaše originálne dokumenty sú stále vaše — my ich iba spracúvame. Po zrušení ich kompletne vymažeme.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)" data-sk="Rozumie AI slovenčine a češtine?" data-en="Does the AI understand Slovak and Czech?">Rozumie AI slovenčine a češtine?</div>
+        <div class="faq-answer"><div class="faq-answer-inner" data-sk="Áno, plne. Naše riešenie je optimalizované pre slovenčinu a češtinu vrátane odbornej terminológie. Zamestnanci sa môžu pýtať prirodzeným jazykom." data-en="Yes, fully. Our solution is optimized for Slovak and Czech including professional terminology. Employees can ask questions in natural language.">Áno, plne. Naše riešenie je optimalizované pre slovenčinu a češtinu vrátane odbornej terminológie. Zamestnanci sa môžu pýtať prirodzeným jazykom.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)" data-sk="Čo ak AI odpovie nesprávne?" data-en="What if the AI answers incorrectly?">Čo ak AI odpovie nesprávne?</div>
+        <div class="faq-answer"><div class="faq-answer-inner" data-sk="Každá odpoveď obsahuje odkaz na zdrojový dokument, takže zamestnanec si ju vie overiť. Ak AI nepozná odpoveď, povie to priamo — nevymýšľa si." data-en="Every answer includes a link to the source document, so the employee can verify it. If the AI doesn't know the answer, it says so directly — it doesn't make things up.">Každá odpoveď obsahuje odkaz na zdrojový dokument, takže zamestnanec si ju vie overiť. Ak AI nepozná odpoveď, povie to priamo — nevymýšľa si.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta" id="contact">
   <div class="container">
@@ -993,7 +1158,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <p>© 2026 SpýtajSa · <span data-sk="Bratislava, Slovensko" data-en="Bratislava, Slovakia">Bratislava, Slovensko</span> · <a href="mailto:ahoj@spytajsa.sk" style="color: var(--accent-light); text-decoration: none;">ahoj@spytajsa.sk</a></p>
+    <p>© 2026 SpýtajSa · <span data-sk="Bratislava, Slovensko" data-en="Bratislava, Slovakia">Bratislava, Slovensko</span> · <a href="mailto:spytajsask@gmail.com" style="color: var(--accent-light); text-decoration: none;">spytajsask@gmail.com</a></p>
   </div>
 </footer>
 
@@ -1045,6 +1210,12 @@ function submitEmail() {
   }
 }
 
+// FAQ toggle
+function toggleFaq(el) {
+  const item = el.parentElement;
+  item.classList.toggle('open');
+}
+
 // Scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -1054,7 +1225,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.stat-card, .step, .benefit, .price-card').forEach(el => {
+document.querySelectorAll('.stat-card, .step, .benefit, .price-card, .faq-item, .proof-item').forEach(el => {
   el.style.opacity = '0';
   observer.observe(el);
 });
